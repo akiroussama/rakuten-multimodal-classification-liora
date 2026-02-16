@@ -1,0 +1,32 @@
+# ── Core Framework ──
+streamlit>=1.28.0
+
+# ── Data Science ──
+numpy>=1.24.0
+pandas>=2.0.0
+
+# ── Machine Learning ──
+scikit-learn>=1.3.0
+joblib>=1.3.0
+xgboost>=2.0.0
+
+# ── Deep Learning (required for image models) ──
+torch>=2.1.0
+torchvision>=0.16.0
+timm>=0.9.0          # DINOv3 ViT-Large model loader
+
+# ── Model Hosting ──
+huggingface_hub>=0.20.0  # Auto-download models from HF Hub
+
+# ── Image Processing ──
+Pillow>=10.0.0
+
+# ── Visualization ──
+plotly>=5.15.0
+matplotlib>=3.7.0    # Required for pandas background_gradient styling
+graphviz>=0.20.0     # Model architecture diagrams on page 3
+
+# ── NLP ──
+nltk>=3.8.0
+langid>=1.1.6
+beautifulsoup4>=4.12.0

@@ -1,0 +1,40 @@
+{
+    "version": "1.0.0",
+    "created_at": "2025-01-16",
+    "description": "Baseline metrics for Rakuten Product Classifier",
+
+    "metrics": {
+        "accuracy": 0.75,
+        "f1_macro": 0.70,
+        "f1_weighted": 0.75,
+        "precision_macro": 0.70,
+        "recall_macro": 0.65
+    },
+
+    "thresholds": {
+        "min_accuracy": 0.70,
+        "min_f1_macro": 0.65,
+        "min_confidence": 0.30,
+        "max_inference_time_ms": 100,
+        "regression_tolerance": 0.02
+    },
+
+    "model_configs": {
+        "text_models": ["tfidf_svm", "tfidf_rf", "camembert"],
+        "image_models": ["resnet50_svm", "resnet50_rf", "vgg16_svm"]
+    },
+
+    "golden_predictions": {
+        "Console PlayStation 5": "2462",
+        "iPhone 15 Pro Max": "2583",
+        "Harry Potter livre": "2403",
+        "Piscine gonflable": "2582",
+        "Figurine Pop Marvel": "1281"
+    },
+
+    "notes": [
+        "Baseline créé en mode mock/démonstration",
+        "À mettre à jour avec les vrais modèles ML",
+        "Les seuils sont conservateurs pour éviter les faux positifs"
+    ]
+}

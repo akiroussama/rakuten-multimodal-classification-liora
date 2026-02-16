@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Models (downloaded at runtime from HF Hub)
+models/*
+!models/.gitkeep
+*.pth
+*.pkl
+*.joblib
+*.h5
+
+# Secrets
+*.pem
+*.env
+.env
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+nul
+
+# Project artifacts / local outputs
+.playwright-mcp/
+datasets/
+screenshot/
+test_images/
+archive/
+images/
+implementation/outputs/
+
+# Temp files
+temp_*.jpg
+temp_*.png
+*.tmp
+*.log
+analyze_output.txt
+test_demo_results.json

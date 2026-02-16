@@ -1,0 +1,299 @@
+/*
+ * Styles Rakuten - Thème clair
+ * Inspiré du site officiel Rakuten
+ */
+
+/* Variables CSS */
+:root {
+    --rakuten-red: #BF0000;
+    --rakuten-red-dark: #990000;
+    --rakuten-white: #FFFFFF;
+    --rakuten-bg: #FAFAFA;
+    --rakuten-gray-light: #F5F5F5;
+    --rakuten-gray: #666666;
+    --rakuten-gray-dark: #333333;
+    --rakuten-border: #E0E0E0;
+    --success-green: #28A745;
+    --warning-yellow: #FF9800;
+    --error-red: #DC3545;
+}
+
+/* Prevent scrollbar jiggle on HF Spaces */
+html {
+    overflow-y: scroll;
+}
+
+/* Force light mode - Application background */
+.stApp {
+    background-color: var(--rakuten-bg) !important;
+    color: var(--rakuten-gray-dark) !important;
+}
+
+/* All text dark */
+.stApp p, .stApp span, .stApp label, .stApp li {
+    color: var(--rakuten-gray-dark) !important;
+}
+
+/* Headers red */
+h1, h2, h3, h4 {
+    color: var(--rakuten-red) !important;
+}
+
+/* Primary buttons */
+.stButton > button {
+    background-color: var(--rakuten-red) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.stButton > button:hover {
+    background-color: var(--rakuten-red-dark) !important;
+    color: #FFFFFF !important;
+}
+
+.stButton > button p,
+.stButton > button span,
+.stButton > button div {
+    color: #FFFFFF !important;
+}
+
+/* Primary type button */
+.stButton > button[kind="primary"],
+.stButton > button[data-testid="stBaseButton-primary"] {
+    background-color: var(--rakuten-red) !important;
+    color: #FFFFFF !important;
+}
+
+.stButton > button[kind="primary"] p,
+.stButton > button[kind="primary"] span,
+.stButton > button[data-testid="stBaseButton-primary"] p,
+.stButton > button[data-testid="stBaseButton-primary"] span {
+    color: #FFFFFF !important;
+}
+
+/* Secondary buttons (gray background) */
+.stButton > button[kind="secondary"],
+.stButton > button[data-testid="stBaseButton-secondary"] {
+    background-color: #F0F0F0 !important;
+    color: #333333 !important;
+    border: 1px solid #CCCCCC !important;
+}
+
+.stButton > button[kind="secondary"] p,
+.stButton > button[kind="secondary"] span,
+.stButton > button[data-testid="stBaseButton-secondary"] p,
+.stButton > button[data-testid="stBaseButton-secondary"] span {
+    color: #333333 !important;
+}
+
+/* Download button */
+.stDownloadButton > button {
+    background-color: var(--rakuten-red) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+}
+
+.stDownloadButton > button p,
+.stDownloadButton > button span,
+.stDownloadButton > button div {
+    color: #FFFFFF !important;
+}
+
+.stDownloadButton > button:hover {
+    background-color: var(--rakuten-red-dark) !important;
+}
+
+/* Cards */
+.prediction-card {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    color: var(--rakuten-gray-dark);
+}
+
+/* Category badge */
+.category-badge {
+    display: inline-block;
+    background-color: var(--rakuten-red);
+    color: white !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Confidence indicators */
+.confidence-high {
+    color: var(--success-green) !important;
+    font-weight: bold;
+}
+
+.confidence-medium {
+    color: var(--warning-yellow) !important;
+    font-weight: bold;
+}
+
+.confidence-low {
+    color: var(--error-red) !important;
+}
+
+/* Sidebar - Light */
+[data-testid="stSidebar"] {
+    background-color: var(--rakuten-white) !important;
+    border-right: 1px solid var(--rakuten-border);
+}
+
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {
+    color: var(--rakuten-gray-dark) !important;
+}
+
+/* Progress bars */
+.stProgress > div > div {
+    background-color: var(--rakuten-red) !important;
+}
+
+/* File uploader */
+[data-testid="stFileUploader"] {
+    background-color: white !important;
+    border: 2px dashed var(--rakuten-border) !important;
+    border-radius: 10px;
+    padding: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+[data-testid="stFileUploader"]:hover {
+    border-color: var(--rakuten-red) !important;
+}
+
+/* Metrics */
+[data-testid="stMetric"] {
+    background-color: white !important;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+[data-testid="stMetricLabel"] {
+    color: var(--rakuten-gray) !important;
+}
+
+[data-testid="stMetricValue"] {
+    color: var(--rakuten-red) !important;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    background-color: transparent !important;
+    gap: 8px;
+}
+
+.stTabs [data-baseweb="tab"] {
+    background-color: var(--rakuten-gray-light) !important;
+    color: #333333 !important;
+    border-radius: 8px 8px 0 0;
+    padding: 0.5rem 1rem;
+}
+
+.stTabs [data-baseweb="tab"] p,
+.stTabs [data-baseweb="tab"] span,
+.stTabs [data-baseweb="tab"] div {
+    color: #333333 !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background-color: var(--rakuten-red) !important;
+    color: #FFFFFF !important;
+}
+
+.stTabs [aria-selected="true"] p,
+.stTabs [aria-selected="true"] span,
+.stTabs [aria-selected="true"] div {
+    color: #FFFFFF !important;
+}
+
+/* Mode indicator */
+.mode-indicator {
+    background-color: #FFF3CD;
+    border: 1px solid #FFE69C;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: #856404;
+}
+
+/* Result display */
+.result-header {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, var(--rakuten-red) 0%, var(--rakuten-red-dark) 100%);
+    border-radius: 10px;
+    color: white !important;
+    margin-bottom: 1rem;
+}
+
+/* Top predictions list */
+.prediction-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    color: var(--rakuten-gray-dark);
+}
+
+.prediction-item:first-child {
+    border-left: 4px solid var(--rakuten-red);
+}
+
+/* Inputs - Light */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    background-color: white !important;
+    color: var(--rakuten-gray-dark) !important;
+    border: 1px solid var(--rakuten-border) !important;
+}
+
+/* Select boxes */
+[data-baseweb="select"] {
+    background-color: white !important;
+}
+
+[data-baseweb="select"] * {
+    color: var(--rakuten-gray-dark) !important;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+    background-color: white !important;
+    color: var(--rakuten-gray-dark) !important;
+}
+
+/* Alerts - keep readable */
+.stAlert {
+    color: var(--rakuten-gray-dark) !important;
+}
+
+/* Captions */
+.stCaption, [data-testid="stCaptionContainer"] {
+    color: var(--rakuten-gray) !important;
+}
+
+/* Footer */
+.app-footer {
+    text-align: center;
+    color: var(--rakuten-gray);
+    padding: 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid var(--rakuten-border);
+}
