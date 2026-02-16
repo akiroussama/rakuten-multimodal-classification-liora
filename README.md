@@ -14,6 +14,10 @@ Multimodal e-commerce product classification into 27 categories using text and i
 **Live Demo**: [akiroussama-rakuten-classifier.hf.space](https://akiroussama-rakuten-classifier.hf.space)
 **Hugging Face Space**: [akiroussama/rakuten-classifier](https://huggingface.co/spaces/akiroussama/rakuten-classifier)
 
+**Documents Jury (`reports/`)**
+- Presentation: [PRESENTATION_RAKUTEN_SOUTENANCE.pdf](reports/PRESENTATION_RAKUTEN_SOUTENANCE.pdf)
+- Rapport source: [Classification Multimodale Rakuten Rapport.pdf](reports/Classification%20Multimodale%20Rakuten%20Rapport.pdf)
+
 ---
 
 ## Quick Start
