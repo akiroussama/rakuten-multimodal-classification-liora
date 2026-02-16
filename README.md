@@ -19,7 +19,7 @@ Multimodal e-commerce product classification into 27 categories using text and i
 ## Quick Start
 
 ```bash
-git clone [https://github.com/akiroussama/rakuten-multimodal-classification-liora](https://github.com/akiroussama/rakuten-multimodal-classification-liora)
+git clone https://github.com/akiroussama/rakuten-multimodal-classification-liora
 cd rakuten-multimodal-classification-liora
 pip install -r requirements.txt
 ```
