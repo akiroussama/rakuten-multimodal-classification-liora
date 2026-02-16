@@ -9,11 +9,19 @@ Ces tests vérifient que:
 import pytest
 import sys
 from pathlib import Path
-import importlib.util
 
 # Chemin vers le répertoire Streamlit
 STREAMLIT_DIR = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(STREAMLIT_DIR))
+PAGES_DIR = STREAMLIT_DIR / "pages"
+
+
+def _list_page_files():
+    """Retourne les fichiers de pages Streamlit (hors __init__)."""
+    return sorted(
+        [f for f in PAGES_DIR.glob("*.py") if not f.name.startswith("__")],
+        key=lambda p: p.name
+    )
 
 
 # =============================================================================
@@ -101,15 +109,7 @@ class TestModuleImports:
 class TestPageSyntax:
     """Tests de syntaxe des fichiers de page."""
 
-    PAGE_FILES = [
-        "app.py",
-        "pages/1_📊_Données.py",
-        "pages/2_⚙️_Preprocessing.py",
-        "pages/3_🧠_Modèles.py",
-        "pages/4_🔍_Démo.py",
-        "pages/5_📈_Performance.py",
-        "pages/6_💡_Conclusions.py",
-    ]
+    PAGE_FILES = ["app.py"] + [f"pages/{p.name}" for p in _list_page_files()]
 
     @pytest.mark.parametrize("page_file", PAGE_FILES)
     def test_page_syntax_valid(self, page_file):
@@ -202,21 +202,14 @@ class TestPageStructure:
         assert pages_dir.exists()
         assert pages_dir.is_dir()
 
-    def test_has_six_pages(self):
-        """Il y a 6 pages dans le répertoire."""
-        pages_dir = STREAMLIT_DIR / "pages"
-        page_files = list(pages_dir.glob("*.py"))
-
-        # Exclure __pycache__ et __init__.py
-        page_files = [f for f in page_files if not f.name.startswith("__")]
-
-        assert len(page_files) == 6, f"Expected 6 pages, found {len(page_files)}"
+    def test_has_expected_number_of_pages(self):
+        """Le répertoire contient toutes les pages prévues de la soutenance."""
+        page_files = _list_page_files()
+        assert len(page_files) >= 8, f"Expected at least 8 pages, found {len(page_files)}"
 
     def test_pages_have_correct_numbering(self):
-        """Les pages sont numérotées de 1 à 6."""
-        pages_dir = STREAMLIT_DIR / "pages"
-        page_files = list(pages_dir.glob("*.py"))
-        page_files = [f for f in page_files if not f.name.startswith("__")]
+        """Les pages sont numérotées de manière séquentielle (1..N)."""
+        page_files = _list_page_files()
 
         numbers_found = set()
         for page in page_files:
@@ -225,14 +218,12 @@ class TestPageStructure:
             if first_char.isdigit():
                 numbers_found.add(int(first_char))
 
-        expected = {1, 2, 3, 4, 5, 6}
+        expected = set(range(1, len(page_files) + 1))
         assert numbers_found == expected, f"Page numbering incorrect: {numbers_found}"
 
     def test_pages_have_emojis(self):
         """Les noms de pages contiennent des emojis."""
-        pages_dir = STREAMLIT_DIR / "pages"
-        page_files = list(pages_dir.glob("*.py"))
-        page_files = [f for f in page_files if not f.name.startswith("__")]
+        page_files = _list_page_files()
 
         for page in page_files:
             # Un emoji a généralement un point de code > 127

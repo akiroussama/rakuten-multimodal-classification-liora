@@ -1,0 +1,28 @@
+name: CD
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  package-jury-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build delivery bundle
+        shell: bash
+        run: |
+          mkdir -p dist
+          tar -czf dist/rakuten-streamlit-jury.tar.gz \
+            README.md LICENSE requirements.txt requirements-ci.txt \
+            .streamlit src reports
+
+      - name: Upload bundle artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rakuten-streamlit-jury
+          path: dist/rakuten-streamlit-jury.tar.gz
+          if-no-files-found: error

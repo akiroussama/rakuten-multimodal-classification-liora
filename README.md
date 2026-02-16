@@ -73,7 +73,7 @@ Product Input (text + image)
 │   └── streamlit/
 │       ├── app.py                   # Home page & entry point
 │       ├── config.py                # Paths, fusion weights, HF repo ID
-│       ├── pages/                   # 5 interactive pages
+│       ├── pages/                   # 8 interactive pages
 │       ├── utils/                   # Classifiers, data loading, preprocessing
 │       ├── assets/                  # CSS + model charts
 │       └── tests/                   # Unit, integration, robustness tests
@@ -104,11 +104,28 @@ XGBoost model (`M2_IMAGE_Classic_XGBoost.json`) is optional. The Voting System f
 ## Tests
 
 ```bash
-cd src/streamlit
-python -m pytest tests/test_robustness.py -v
+pytest -c src/streamlit/tests/pytest.ini src/streamlit/tests/unit -m "unit"
+pytest -c src/streamlit/tests/pytest.ini src/streamlit/tests/integration -m "integration"
+pytest -c src/streamlit/tests/pytest.ini src/streamlit/tests/security -m "security"
+pytest -c src/streamlit/tests/pytest.ini src/streamlit/tests/ml -m "ml and regression"
+pytest -c src/streamlit/tests/pytest.ini src/streamlit/tests/e2e -m "e2e and smoke"
 ```
 
-38 tests covering: model download fallbacks, graceful degradation with missing models, voting weight correctness, error message clarity, prediction format regression, 27-class integrity, and app structure validation.
+Suites couvertes:
+- Tests unitaires
+- Tests d'integration Streamlit
+- Tests securite (sanitization / OWASP basique)
+- Tests non-regression ML (modele mock)
+- Test end-to-end smoke (startup Streamlit)
+
+---
+
+## CI/CD
+
+- CI GitHub Actions: `.github/workflows/ci.yml`
+  - execute automatiquement les suites `unit`, `integration`, `security`, `ml-regression`, `e2e-smoke`
+- CD GitHub Actions: `.github/workflows/cd.yml`
+  - genere un bundle `rakuten-streamlit-jury.tar.gz` en artefact de delivery
 
 ---
 
