@@ -129,6 +129,14 @@ Suites couvertes:
 
 ---
 
+## Future évolution
+
+- Ajouter un vrai deploiement CD automatique vers Hugging Face Space apres validation CI.
+- Ajouter un suivi de couverture en CI avec seuil minimum et publication de rapport.
+- Etendre les tests e2e navigateur (Playwright) pour valider les parcours demo complets.
+
+---
+
 ## License
 
 MIT
